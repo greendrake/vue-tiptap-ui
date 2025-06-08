@@ -1,0 +1,34 @@
+# Source files (only include dist)
+src/
+tsconfig*.json
+vite.config.ts
+.prettierrc
+
+# Development files
+.yarn/
+.pnp.*
+yarn.lock
+node_modules/
+
+# Build files for demo (not the library)
+dist/src/
+dist/assets/
+
+# Development and testing
+.git/
+.gitignore
+.eslintrc*
+*.spec.ts
+*.test.ts
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log* 

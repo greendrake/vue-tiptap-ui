@@ -1,0 +1,74 @@
+// CSS Custom Properties for TipTap UI Components
+:root {
+  // --- Spacing ---
+  --tt-spacing-xs: 0.25rem;
+  --tt-spacing-sm: 0.5rem;
+  --tt-spacing-md: 0.75rem;
+  --tt-spacing-lg: 1rem;
+  --tt-spacing-xl: 1.5rem;
+  
+  // --- Border Radius ---
+  --tt-radius-sm: 0.25rem;
+  --tt-radius-md: 0.5rem;
+  --tt-radius-lg: 0.75rem;
+  --tt-radius-xl: 1rem;
+  
+  // --- Transitions ---
+  --tt-transition-duration-default: 150ms;
+  --tt-transition-easing-default: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  // --- Button Colors ---
+  --tt-button-default-bg-color: transparent;
+  --tt-button-default-text-color: #374151;
+  --tt-button-default-icon-color: #6b7280;
+  --tt-button-default-icon-sub-color: #9ca3af;
+  --tt-button-default-dropdown-arrows-color: #9ca3af;
+  
+  --tt-button-hover-bg-color: #f3f4f6;
+  --tt-button-hover-text-color: #111827;
+  --tt-button-hover-icon-color: #374151;
+  --tt-button-hover-icon-sub-color: #6b7280;
+  --tt-button-hover-dropdown-arrows-color: #6b7280;
+  
+  --tt-button-active-bg-color: #e5e7eb;
+  --tt-button-active-text-color: #111827;
+  --tt-button-active-icon-color: #374151;
+  --tt-button-active-icon-sub-color: #6b7280;
+  --tt-button-active-dropdown-arrows-color: #6b7280;
+  --tt-button-active-hover-bg-color: #d1d5db;
+  
+  // --- Emphasized Button Colors ---
+  --tt-button-active-bg-color-emphasized: #3b82f6;
+  --tt-button-active-text-color-emphasized: #ffffff;
+  --tt-button-active-icon-color-emphasized: #ffffff;
+  --tt-button-active-icon-sub-color-emphasized: #dbeafe;
+  --tt-button-active-dropdown-arrows-color-emphasized: #dbeafe;
+  --tt-button-active-hover-bg-color-emphasized: #2563eb;
+  
+  // --- Subdued Button Colors ---
+  --tt-button-active-bg-color-subdued: #f9fafb;
+  --tt-button-active-text-color-subdued: #374151;
+  --tt-button-active-icon-color-subdued: #6b7280;
+  --tt-button-active-icon-sub-color-subdued: #9ca3af;
+  --tt-button-active-dropdown-arrows-color-subdued: #9ca3af;
+  --tt-button-active-hover-bg-color-subdued: #f3f4f6;
+  
+  // --- Disabled Button Colors ---
+  --tt-button-disabled-bg-color: transparent;
+  --tt-button-disabled-text-color: #d1d5db;
+  --tt-button-disabled-icon-color: #d1d5db;
+  
+  // --- Toolbar Colors ---
+  --tt-toolbar-bg-color: #ffffff;
+  --tt-toolbar-border-color: #e5e7eb;
+  
+  // --- Popover/Dropdown Colors ---
+  --tt-popover-bg-color: #ffffff;
+  --tt-popover-border-color: #e5e7eb;
+  --tt-popover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
+  // --- Tooltip Colors ---
+  --tt-tooltip-bg-color: #1f2937;
+  --tt-tooltip-text-color: #ffffff;
+  --tt-tooltip-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
