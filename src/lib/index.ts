@@ -1,3 +1,6 @@
+// Import CSS variables
+import './variables.scss'
+
 // Vue TipTap UI Components Library
 export { default as Editor } from './components/Editor.vue'
 export { default as Button } from './components/Button.vue'
