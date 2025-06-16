@@ -26,3 +26,6 @@ export { default as SubscriptIcon } from './components/icons/Subscript.vue'
 
 // Utilities
 export * from './utils'
+
+// Composables
+export { useEditor, provideEditor } from './composables'

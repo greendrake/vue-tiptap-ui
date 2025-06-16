@@ -11,15 +11,17 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { Editor } from '@tiptap/vue-3'
+import { useEditor } from '../../composables'
 import Button from '../Button.vue'
 
 interface Props {
     type: 'bulletList' | 'orderedList' | 'taskList'
-    editor?: Editor | null
 }
 
 const props = defineProps<Props>()
+
+// Inject the editor instance
+const editor = useEditor()
 
 const buttonText = computed(() => {
     switch (props.type) {
@@ -35,11 +37,11 @@ const buttonText = computed(() => {
 })
 
 const handleClick = () => {
-    if (props.editor) {
+    if (editor.value) {
         if (props.type === 'taskList') {
-            props.editor.chain().focus().toggleTaskList().run()
+            editor.value.chain().focus().toggleTaskList().run()
         } else {
-            props.editor
+            editor.value
                 .chain()
                 .focus()
                 .toggleList(props.type, 'listItem')

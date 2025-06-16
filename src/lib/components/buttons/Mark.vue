@@ -24,6 +24,7 @@
 import { computed } from 'vue'
 import type { Editor } from '@tiptap/vue-3'
 import { isMarkInSchema } from '../../utils'
+import { useEditor } from '../../composables'
 import Button from '../Button.vue'
 
 // Icons
@@ -46,7 +47,6 @@ export type Mark =
 
 interface Props {
     type: Mark
-    editor?: Editor | null
     text?: string
     hideWhenUnavailable?: boolean
     className?: string
@@ -58,12 +58,14 @@ interface Emits {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-    editor: null,
     text: '',
     hideWhenUnavailable: false,
     className: '',
     disabled: false
 })
+
+// Inject the editor instance
+const editor = useEditor()
 
 const emit = defineEmits<Emits>()
 
@@ -150,18 +152,18 @@ const getFormattedMarkName = (type: Mark): string => {
 }
 
 // Computed properties
-const markInSchema = computed(() => isMarkInSchema(props.type, props.editor))
+const markInSchema = computed(() => isMarkInSchema(props.type, editor.value))
 const isDisabled = computed(() =>
-    isMarkButtonDisabled(props.editor, props.type, props.disabled)
+    isMarkButtonDisabled(editor.value, props.type, props.disabled)
 )
-const isActive = computed(() => isMarkActive(props.editor, props.type))
+const isActive = computed(() => isMarkActive(editor.value, props.type))
 const Icon = computed(() => markIcons[props.type])
 const shortcutKey = computed(() => markShortcutKeys[props.type])
 const formattedName = computed(() => getFormattedMarkName(props.type))
 
 const show = computed(() => {
     return shouldShowMarkButton({
-        editor: props.editor,
+        editor: editor.value,
         type: props.type,
         hideWhenUnavailable: props.hideWhenUnavailable,
         markInSchema: markInSchema.value
@@ -171,8 +173,8 @@ const show = computed(() => {
 const handleClick = (event: MouseEvent) => {
     emit('click', event)
 
-    if (!event.defaultPrevented && !isDisabled.value && props.editor) {
-        toggleMark(props.editor, props.type)
+    if (!event.defaultPrevented && !isDisabled.value && editor) {
+        toggleMark(editor.value, props.type)
     }
 }
 </script>

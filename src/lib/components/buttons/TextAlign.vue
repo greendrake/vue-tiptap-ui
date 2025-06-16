@@ -11,15 +11,17 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { Editor } from '@tiptap/vue-3'
+import { useEditor } from '../../composables'
 import Button from '../Button.vue'
 
 interface Props {
     alignment: 'left' | 'center' | 'right' | 'justify'
-    editor?: Editor | null
 }
 
 const props = defineProps<Props>()
+
+// Inject the editor instance
+const editor = useEditor()
 
 const alignmentSymbol = computed(() => {
     switch (props.alignment) {
@@ -37,8 +39,8 @@ const alignmentSymbol = computed(() => {
 })
 
 const handleClick = () => {
-    if (props.editor) {
-        props.editor.chain().focus().setTextAlign(props.alignment).run()
+    if (editor.value) {
+        editor.value.chain().focus().setTextAlign(props.alignment).run()
     }
 }
 </script>

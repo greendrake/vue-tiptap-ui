@@ -10,22 +10,24 @@
 </template>
 
 <script setup lang="ts">
-import type { Editor } from '@tiptap/vue-3'
+import { useEditor } from '../../composables'
 import Button from '../Button.vue'
 
 interface Props {
     type: 'undo' | 'redo'
-    editor?: Editor | null
 }
 
 const props = defineProps<Props>()
 
+// Inject the editor instance
+const editor = useEditor()
+
 const handleClick = () => {
-    if (props.editor) {
+    if (editor.value) {
         if (props.type === 'undo') {
-            props.editor.chain().focus().undo().run()
+            editor.value.chain().focus().undo().run()
         } else {
-            props.editor.chain().focus().redo().run()
+            editor.value.chain().focus().redo().run()
         }
     }
 }

@@ -1,14 +1,14 @@
 <template>
-    <div class="tiptap-editor-wrapper">
-        <Toolbar v-if="edRef" :editor="edRef.editor" />
-        <Editor
-            ref="edRef"
-            v-model="content"
-            :extensions="extensions"
-            class="tiptap-editor"
-        />
-        Raw HTML view/edit:
-        <textarea v-model="content"></textarea>
+    <div class="demo-container">
+        <Editor v-model="content" :extensions="extensions">
+            <template #toolbar>
+                <Toolbar />
+            </template>
+        </Editor>
+        <div class="raw-html-section">
+            <label for="raw-html">Raw HTML view/edit:</label>
+            <textarea id="raw-html" v-model="content"></textarea>
+        </div>
     </div>
 </template>
 
@@ -51,37 +51,34 @@ const extensions = [
     })
 ]
 
-const edRef = ref()
-
-const content = ref(`
-    <h1>Welcome to Vue Tiptap UI Components!</h1>
-    <p>This is a demo of the ported Tiptap UI components for Vue 3. You can:</p>
-    <ul>
-      <li><strong>Bold</strong> and <em>italic</em> text</li>
-      <li><u>Underline</u> and <s>strikethrough</s> text</li>
-      <li>Create <mark>highlighted</mark> text</li>
-      <li>Add <code>inline code</code></li>
-    </ul>
-    <p>Try using the toolbar above to format this text!</p>
-  `)
+const content = ref(
+    `<h1>Welcome to Vue Tiptap UI Components!</h1><p>This is a demo of the ported Tiptap UI components for Vue 3. You can:</p><ul><li><p><strong>Bold</strong> and <em>italic</em> text</p></li><li><p><u>Underline</u> and <s>strikethrough</s> text</p></li><li><p>Create <mark>highlighted</mark> text</p></li><li><p>Add <code>inline code</code></p></li></ul><p>Try using the toolbar above to format this text!</p>`
+)
 </script>
 
 <style scoped>
-.tiptap-editor-wrapper {
+.raw-html-section {
+    margin-top: 2rem;
+}
+
+.raw-html-section label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.raw-html-section textarea {
+    width: 100%;
+    height: 100px;
+    padding: 0.75rem;
     border: 1px solid #e1e5e9;
-    border-radius: 0.75rem;
-    overflow: hidden;
-    textarea {
-        width: 100%;
-        height: 100px;
-    }
+    border-radius: 0.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.875rem;
+    resize: vertical;
 }
 
-.tiptap-editor {
-    min-height: 200px;
-    padding: 1rem;
-}
-
+/* Deep styles for the editor content */
 :deep(.ProseMirror) {
     outline: none;
     min-height: 200px;

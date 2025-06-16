@@ -4,23 +4,13 @@
             <h1>Vue Tiptap UI Components</h1>
             <p>A UI component library for Tiptap editor in Vue 3</p>
         </header>
-
         <main>
             <div class="demo-section">
-                <h2>Full-Featured Editor</h2>
-                <p>
-                    This example shows a comprehensive toolbar with all
-                    available components:
-                </p>
+                <h2>Advanced Editor</h2>
                 <Editor />
             </div>
-
             <div class="demo-section">
                 <h2>Simple Editor</h2>
-                <p>
-                    This example shows how to build a minimal editor using just
-                    a few components:
-                </p>
                 <SimpleEditor />
             </div>
         </main>

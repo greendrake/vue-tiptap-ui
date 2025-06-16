@@ -2,11 +2,11 @@
     <div class="tiptap-toolbar">
         <!-- Text formatting buttons -->
         <div class="toolbar-group">
-            <MarkButton type="bold" :editor="editor" />
-            <MarkButton type="italic" :editor="editor" />
-            <MarkButton type="underline" :editor="editor" />
-            <MarkButton type="strike" :editor="editor" />
-            <MarkButton type="code" :editor="editor" />
+            <MarkButton type="bold" />
+            <MarkButton type="italic" />
+            <MarkButton type="underline" />
+            <MarkButton type="strike" />
+            <MarkButton type="code" />
         </div>
 
         <!-- Separator -->
@@ -14,9 +14,9 @@
 
         <!-- Heading buttons -->
         <div class="toolbar-group">
-            <HeadingButton :level="1" :editor="editor" />
-            <HeadingButton :level="2" :editor="editor" />
-            <HeadingButton :level="3" :editor="editor" />
+            <HeadingButton :level="1" />
+            <HeadingButton :level="2" />
+            <HeadingButton :level="3" />
         </div>
 
         <!-- Separator -->
@@ -24,9 +24,9 @@
 
         <!-- List buttons -->
         <div class="toolbar-group">
-            <ListButton type="bulletList" :editor="editor" />
-            <ListButton type="orderedList" :editor="editor" />
-            <ListButton type="taskList" :editor="editor" />
+            <ListButton type="bulletList" />
+            <ListButton type="orderedList" />
+            <ListButton type="taskList" />
         </div>
 
         <!-- Separator -->
@@ -34,10 +34,10 @@
 
         <!-- Text alignment -->
         <div class="toolbar-group">
-            <TextAlignButton alignment="left" :editor="editor" />
-            <TextAlignButton alignment="center" :editor="editor" />
-            <TextAlignButton alignment="right" :editor="editor" />
-            <TextAlignButton alignment="justify" :editor="editor" />
+            <TextAlignButton alignment="left" />
+            <TextAlignButton alignment="center" />
+            <TextAlignButton alignment="right" />
+            <TextAlignButton alignment="justify" />
         </div>
 
         <!-- Separator -->
@@ -45,9 +45,9 @@
 
         <!-- Advanced formatting -->
         <div class="toolbar-group">
-            <HighlightButton :editor="editor" />
-            <MarkButton type="superscript" :editor="editor" />
-            <MarkButton type="subscript" :editor="editor" />
+            <HighlightButton />
+            <MarkButton type="superscript" />
+            <MarkButton type="subscript" />
         </div>
 
         <!-- Separator -->
@@ -55,14 +55,13 @@
 
         <!-- Undo/Redo -->
         <div class="toolbar-group">
-            <UndoRedoButton type="undo" :editor="editor" />
-            <UndoRedoButton type="redo" :editor="editor" />
+            <UndoRedoButton type="undo" />
+            <UndoRedoButton type="redo" />
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import type { Editor } from '@tiptap/vue-3'
 import {
     MarkButton,
     HeadingButton,
@@ -71,12 +70,6 @@ import {
     HighlightButton,
     UndoRedoButton
 } from '../../lib'
-
-interface Props {
-    editor: Editor | null
-}
-
-defineProps<Props>()
 </script>
 
 <style lang="scss">

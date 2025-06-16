@@ -10,19 +10,21 @@
 </template>
 
 <script setup lang="ts">
-import type { Editor } from '@tiptap/vue-3'
+import { useEditor } from '../../composables'
 import Button from '../Button.vue'
 
 interface Props {
     level: 1 | 2 | 3 | 4 | 5 | 6
-    editor?: Editor | null
 }
 
 const props = defineProps<Props>()
 
+// Inject the editor instance
+const editor = useEditor()
+
 const handleClick = () => {
-    if (props.editor) {
-        props.editor.chain().focus().toggleHeading({ level: props.level }).run()
+    if (editor.value) {
+        editor.value.chain().focus().toggleHeading({ level: props.level }).run()
     }
 }
 </script>

@@ -20,22 +20,24 @@ Then import and use `Editor` in your Vue components as follows (put together you
 
 ```vue
 <template>
-    <div class="my-editor">
-        <div class="my-editor-toolbar" v-if="edRef">
-            <MarkButton type="bold" :editor="edRef.editor" />
-            <MarkButton type="italic" :editor="edRef.editor" />
-            <MarkButton type="underline" :editor="edRef.editor" />
-        </div>
-        <Editor ref="edRef" v-model="content" :extensions="extensions" class="editor-content" />
-    </div>
+    <Editor
+        v-model="content"
+        :extensions="extensions"
+    >
+        <template #toolbar>
+            <div>
+                <MarkButton type="bold" />
+                <MarkButton type="italic" />
+                <MarkButton type="underline" />
+            </div>
+        </template>
+    </Editor>
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import StarterKit from '@tiptap/starter-kit'
 import { Underline } from '@tiptap/extension-underline'
 import { Editor, MarkButton } from 'vue-tiptap-ui'
-const edRef = ref()
 const extensions = [StarterKit, Underline]
 const content = defineModel()
 </script>
